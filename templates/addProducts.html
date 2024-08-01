@@ -1,0 +1,67 @@
+{% extends 'navbar.html' %}
+{% block title %}Add Products{% endblock %}
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %} 
+{% endif%}
+
+<form method="POST" enctype="multipart/form-data" style="height:fit-content;width: 500px; background-color:rgb(175, 165, 240);color:blueviolet; margin-top: 50px;margin-left: 400px;font-size: larger;border: 5px solid blueviolet;border-style:double;">
+    {% csrf_token %}
+    <br/><label>Add Product</label><br/><hr><br/>
+    <div>
+        <div  style="display: flex; margin-left: 10px;" >
+            <label style="width: 175px;">Product Name</label><label> : </label>
+            <input type="text" name="pName" placeholder="Product Name" style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product Type</label><label> : </label>
+            <input type="text" name="pType" placeholder="Product Type"  style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product Model</label><label> : </label>
+            <input type="text" name="pModel" placeholder="Product Model"  style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product Meterial</label><label> : </label>
+            <input type="text" name="pMeterial" placeholder="Product Meterial"  style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Poduct Description</label><label> : </label>
+            <textarea name="pDescription" style="width: 250px;"></textarea>
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product image</label><label> : </label>
+            <input type="file" name="pImage" style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product Price</label><label> : </label>
+            <input type="number" name="pPrice" style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Product Size</label><label> : </label>
+            <input type="text" name="pSize" style="width: 250px;">
+        </div><br/><br/>
+
+        <div  style="display: flex;margin-left: 10px;">          
+            <label style="width: 175px;">Colour</label> <label> : </label>               
+            <input type="text" name="pColor" style="width: 250px;">
+        </div><br/><br/>
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Quantity</label><label> : </label>
+            <input type="text" name="pQty" style="width: 250px;">
+        </div><br/><br/> 
+        <div style="display: flex;margin-left: 10px;">
+            <label style="width: 175px;">Person</label><label> : </label>
+            <input type="text" name="pPerson" style="width: 250px;">
+        </div><br/><br/> 
+
+        <div style="display: flex;margin-left: 10px;">
+            <button type="submit" style="width: 90px; border: 2px solid black; color: aliceblue;background-color: rgb(114, 104, 164);margin-left: 165px;border-radius: 50px;">Add</button>
+            <a href="/"><button type="button" style=" border: 2px solid black;width: 90px;height: 40px; color: aliceblue;background-color: rgb(114, 104, 164);border-radius: 50px;">Back</button></a>
+        </div><br/><br/>
+    </div>        
+</form>
+{% endblock %}

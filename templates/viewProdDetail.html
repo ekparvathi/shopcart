@@ -1,0 +1,46 @@
+{% extends 'navbar.html' %}
+{% block title %}Products{% endblock%}
+{% block body %}
+
+    <div style="display:flex;margin-top: 100px;margin-left: 300px;">
+        <div style="width: 200px;height: 300px;border: 1px solid rgb(235, 229, 229);margin:10px;align-items: center;align-content: center;">
+            <img src="/{{prod.P_Image}}" alt="" style="width: 200px;height: 250px;"><br/>            
+        </div>
+        <div style="margin-top: 10px;">
+            <div style="width: 250px;height: 60px; border: 1px solid rgb(235, 229, 229);font-size: large;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                <label for="" >{{prod.P_Name}}</label><br/>
+            </div>
+            <div  style="width: 250px;height: 60px;border: 1px solid rgb(235, 229, 229);margin-top: 20px;">
+                <label for="">{{prod.P_Description}}</label>
+            </div>
+            <div  style="width: 250px;border: 1px solid rgb(235, 229, 229);margin-top: 20px;">
+                <label for="">Product Description</label>
+                
+                    Product Name : {{prod.P_Name}}<br/>
+                    Product Type : {{prod.P_Type}}<br/>
+                    Product Model : {{prod.P_Model}}<br/>
+                    Product Meterial : {{prod.P_Meterial}}<br/>
+                    Product Description : {{prod.P_Description}}<br/>
+                    Product Color : {{prod.P_Color}}<br/>
+                    Product Person : {{prod.P_Person}}<br/>                    
+            </div>
+            
+        </div>  
+        <div style="display: block;margin-left: 20px;margin-top: 10px;">
+                <label for="" style="font-size: larger;"><b>{{prod.P_Price}}</b>/-</label>  <br>   <br>  
+                <form method="POST" action="{% url 'getid'  %}"></form>    
+                    <label for="">Quantity</label>                  
+                    <select name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>   <br><br>    
+                    <!-- <a href="/addToCart/{{prod.id}}"> -->
+                        <button type="submit"  style=" border: 2px solid  rgb(235, 229, 229);width: 90px;height: 40px; color: aliceblue;background-color: rgb(114, 104, 164);border-radius: 50px;">Add To Cart{{prod.id}}</button>
+                    <!-- </a> -->
+                    <a href=""><button style=" border: 2px solid  rgb(235, 229, 229);width: 90px;height: 40px; color: aliceblue;background-color: rgb(114, 104, 164);border-radius: 50px;">Order Now</button></a> 
+                </form>
+            </div>          
+    </div>
+{% endblock%}

@@ -1,0 +1,36 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+    {% extends 'navbar.html' %}
+    {% block title %}Login{% endblock %}
+    {% block body %}
+    <form method="POST" style="margin-top: 100px;margin-left: 400px; background-color: rgb(175, 165, 240);width: 400px;height: fit-content;border: 5px solid blueviolet;border-style: double;">
+        {% csrf_token %}
+        <br/>
+        <div  style="text-align: center;">
+            <label for="">Login<hr></label>
+        </div>
+        
+        <br/><br/>
+        <div style="display: flex;margin-left: 20px;">
+            <label for="" style="width: 175px;">Email</label><label>:</label>
+            <input type="email" name="email">
+        </div><br/><br/>
+        <div style="display: flex;">
+            <label for="" style="width: 175px;margin-left: 20px;">Password</label><label>:</label>
+            <input type="password" name="password">
+        </div>
+        <br/><br/>
+        <div style="display: flex; align-items: flex-end;">
+            <button type="submit" style="width: 90px;height: 30px; border: 2px solid black; color: aliceblue;background-color: rgb(114, 104, 164);border-radius: 50px; margin-left: 170px;">Login</button>
+        </div>
+        <br/><br/>
+    </form>
+{% endblock %}
+    <!-- </body>
+</html> -->

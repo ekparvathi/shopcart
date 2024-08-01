@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+{% block title %}Cart{% endblock%}
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+    <div style="display: flex; margin-top: 30px; color:  rgb(111, 13, 121);font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <label for="" style="margin-left: 30px;font-size: 30px;width: 550px;">Shopping Cart </label><hr>
+        <label for="" style="margin-right: 430px;">Price</label>
+    </div><hr style="width: 1275px;align-self: last baseline;">
+    <div style="display: flex;color:  rgb(111, 13, 121);">
+        <div style="display:block;margin-top: 10px;margin-left: 100px;">
+            {% for p in product %}
+            <div style="display: flex;">
+                <div >
+                    <input type="checkbox" name="selectFromCart" value="{{p.id}}">
+                </div>
+                <div style="display: flex;"> 
+                    <div style="margin:10px;">
+                        <img src="/{{p.P_Image}}" alt=""style="width: 50px;height: 100px;">
+                    </div>
+                    <div style="display: flex; height: 100px; margin-top: 10px;margin-left: 20px;">
+                            <label for="" style="width: 200px; font-size: large;"><b> {{p.P_Name}}</b></label><br/>
+                            <label for="" style="width: 300px;"> {{p.P_Description}}</label>
+                            <label for="" style="margin-left:60px;">{{p.P_Price}}/-</label>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            {% endfor %}
+        </div>
+        <div style="display:block;margin-top: 100px;margin-left: 200px;">
+            <label for="">{{counter}} items in your cart</label>
+            <label for="">{{total}}</label>
+        </div>
+        
+    </div>
+{% endblock%}

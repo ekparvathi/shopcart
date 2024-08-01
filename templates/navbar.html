@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock%}</title>
+</head>
+<body >
+    <header>
+        <nav>
+            <div style="display: flex;height: fit-content;width: 1271px;background-color:rgb(175, 165, 240); margin-top: 0;align-content: center;align-items: center;color:blueviolet;font-size:medium;">
+                <label for=""style=" font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    <h2 style="text-decoration:line-through;font-weight: bolder; font-style: italic;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-left: 10px;">Deva's</h2>
+                </label>  
+                <div style="margin-left: 10px;background-color:rgb(175, 165, 240);font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Delivering <br/>to   <a href="" style="text-decoration: none;"> 680001</a>   </div>           
+                <form method="POST" action="{% url 'search' %}">
+                    {% csrf_token %}
+                    <input type="search" name="search" style="width: 400px;height:30px ;margin-left: 40px;">
+                    <button type="submit" style="background-color: yellow;height: 30px;width: 60px;">Search</button>         
+                </form>
+                <div style="margin-left: 10px;">
+                    <select style="overflow: auto;background-color: rgb(175, 165, 240)     ;color: rgb(111, 13, 121); font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"" >
+                        <option value="India" >India</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Oman">Oman</option>
+                        <option value="UAE">UAE</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center;align-content: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    <!-- <ul style="list-style: none;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        <li><a href="/register" style="text-decoration: none;">Register</a></li>
+                        <li><a href="/account/{{user.id}}" style="text-decoration: none;">Account</a></li>
+                                    
+                    </ul> -->
+                    <a href="/" style="text-decoration: none;margin-left: 20px;">Home</a>
+                    {% if current_user %}
+                    <a href="/account/{{user.id}}" style="text-decoration: none;color: white; margin-left: 10px;">Account</a>                    
+                    <a href="" style="text-decoration: none;margin-left: 10px;">Returns</a>
+                    <a href="" style="text-decoration: none;margin-left: 10px;">Orders</a>
+                    <a href="/addProducts" style="text-decoration: none;margin-left: 20px;">Add Products</a>
+                    {% else %}
+                    <a href="/register" style="text-decoration: none;margin-left: 10px;">Register</a>
+                    {% endif %}
+                    
+                </div>
+                <div style="margin-left: 10px;">
+                    {% if current_user %}
+                    <a href="/showCart"> <img src="static\images\cart.jpg" alt="Cart" style="width: 10px;height: 10px;"></a>
+                    {% endif %}
+                </div>
+                <div style="margin-left: 10px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    {% if current_user %}
+                    Hi {{user.Name}}<br/>
+                    <a href="/logout" style="text-decoration:none;">Logout</a>
+                    {% else %}
+                    <a href="/login" style="text-decoration:none;"  >Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>   
+    {% block body %}{% endblock %}
+
+    <br/><br/>
+    <footer>
+        <div>
+            <div style="width: 1272px;height:max-content;background-color: rgb(175, 165, 240);color:blueviolet; font-family: 'Courier New', Courier, monospace;font-weight: bold;">
+                <h1>Deva's<hr> </h1>
+                <address>
+                    No.31,<br/>
+                    Eiffle Tower,MG Road,<br/>
+                    Thrissur,<br/>
+                    Kerala,<br/>
+                    India.<br/>
+                    Pin-680001,<br/>
+                    Ph-9876598765
+                </address><br/>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

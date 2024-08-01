@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+{% block title %}Account{% endblock %}
+{% block body %}
+    
+   
+   <div style="margin-left: 350px;border: 2px solid black; margin-top: 50px ;width: 600px;font-size: large;font-family: 'Courier New', Courier, monospace;">
+        <div style="display: flex;height: 60px;background-color:cadetblue ;align-items: center;align-content: center;">
+            <label for="" style="width:200px ;margin-left: 20px;">Name</label><label>:</label>{{user.Name}}
+            <img src="/{{user.Image}}" style="width: 60px;height: 60px;margin-left: 20px;">
+        </div>
+        <div style="display: flex;height: 60px;background-color:rgb(204, 244, 246) ;align-items: center;align-content: center;">
+           <label for="" style="width:200px ;margin-left: 20px;">Email</label><label>:</label>{{user.Email}}
+        </div>
+        <div style="display: flex;height: 60px;background-color:cadetblue ;align-items: center;align-content: center;">
+            <label for="" style="width:200px ;margin-left: 20px;">Address</label> <label>:</label>{{user.Address}}
+        </div>
+        <div style="display: flex;height: 60px;background-color:rgb(204, 244, 246) ;align-items: center;align-content: center;">
+            <label for="" style="width:200px ;margin-left: 20px;">PIN</label><label>:</label>{{user.PIN}}
+        </div>
+        <div style="display: flex;height: 60px;background-color:cadetblue ;align-items: center;align-content: center;">
+            <label for="" style="width:200px ;margin-left: 20px;">Phone</label><label>:</label>{{user.Phone}}
+        </div>
+        <div style="display: flex;height: 60px;background-color:rgb(204, 244, 246) ;align-items: center;align-content: center;">
+            <label for="" style="width:200px ;margin-left: 20px;">Password</label><label>:</label>{{user.Password}}
+        </div>
+   </div>
+{% endblock %}
